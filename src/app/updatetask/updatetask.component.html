@@ -1,0 +1,68 @@
+<div class="page-header"  style="padding-left: 140px">
+  <h1>
+    update-task!
+  </h1>
+  </div>
+<!-- Default form contact -->
+<div  style="margin: auto; width: 75%; border: 3px solid #008000;padding: 10px;">
+        <div class="row mb-4" style="padding-left: 140px">
+                <div class="col-lg-3">
+                     <label for="task" style="font-weight: bold">Task</label>
+                </div>
+                <div class="col-lg-6">
+                     <input type="text" class="form-control" id="task"  [(ngModel)]="Task.TaskName">
+                </div>
+            </div> 
+             
+            <div class="row mb-4" style="padding-left: 140px">
+                 <div class="col-lg-3">
+                      <label for="slider1" style="font-weight: bold">Priority:</label>
+                 </div>
+                 <div class="col-lg-6">
+                  <input id="slider1" type="range" [(ngModel)]="Task.Priority"  min="10" max="50" step="10" /> 
+                 </div>
+             </div> 
+             <div class="row mb-4" style="padding-left: 140px">
+                <div class="col-lg-3">
+                        <label for="parenttask" style="font-weight: bold">Parent Task</label>
+                 </div> 
+             <div class="col-lg-6">
+                <select id="parenttask" class="form-control" [(ngModel)]="Task.Parent_ID" name="Parent_ID">
+                    <option disabled value="null">Select ParentTask</option>
+                    <option *ngFor="let parenttask of parenttasks" [value]="parenttask.Parent_ID"> 
+                        {{parenttask.Parent_Task}}
+                    </option>                    
+                </select>
+              </div>
+            </div>
+             <div class="row mb-4" style="padding-left: 140px">
+              <div class="col-lg-3">
+                   <label for="startdate" style="font-weight: bold">Start Date:</label>
+              </div>
+              <div class="col-lg-6">
+                   <input type="date" class="form-control" [ngModel] ="Task.Start_Date | date:'yyyy-MM-dd'" (ngModelChange)="Task.Start_Date = $event"  id="startdate">
+              </div>
+          </div> 
+           
+          <div class="row mb-4" style="padding-left: 140px">
+            <div class="col-lg-3">
+                 <label for="enddate" style="font-weight: bold">End Date:</label>
+            </div>
+            <div class="col-lg-6">
+                 <input type="date" class="form-control" [ngModel] ="Task.End_Date | date:'yyyy-MM-dd'" (ngModelChange)="Task.End_Date = $event" id="enddate">
+            </div>
+        </div> 
+        <div class="row mb-4" style="padding-left: 360px">
+          <div class="col-lg-3 col-lg-offset-3">
+            <button type="submit" class="btn btn-primary" (click)="updateTask()">Update Task</button>
+          </div>
+          <div class="col-lg-3 col-lg-offset-3">
+            <button type="submit" class="btn btn-primary">Reset</button>
+          </div>
+      </div> 
+         
+         
+</div>
+  
+<!-- Default form contact -->
+
